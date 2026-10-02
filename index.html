@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Value Chain Engine</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo" onclick="showLanding()">
+        <span>VCE</span>
+        <div>
+            <strong>VALUE CHAIN</strong>
+            <small>ENGINE</small>
+        </div>
+    </div>
+
+    <div id="navProfile" class="nav-profile hidden">
+        <span id="navUserName"></span>
+        <button onclick="openEditProfile()">Profile</button>
+    </div>
+
+</header>
+
+
+<!-- ================= LANDING ================= -->
+
+<section id="landingPage" class="page landing">
+
+    <div class="landing-image"></div>
+
+    <div class="landing-content">
+
+        <div class="eyebrow">
+            AGRICULTURAL ECOSYSTEM
+        </div>
+
+        <h1>
+            From the field<br>
+            <span>to the market.</span>
+        </h1>
+
+        <p>
+            Value Chain Engine connects farmers, harvesters,
+            transporters, marketers, wholesalers and retailers
+            into one connected network.
+        </p>
+
+        <button class="start-button" onclick="startEngine()">
+            GET STARTED
+            <span>→</span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ROLE ================= -->
+
+<section id="rolePage" class="page centered-page hidden">
+
+    <div class="step-number">01</div>
+
+    <h1>Who are you?</h1>
+
+    <p class="subtitle">
+        Select your role in the value chain.
+    </p>
+
+    <div class="select-wrapper">
+
+        <select id="roleSelect">
+
+            <option value="">
+                Select your role
+            </option>
+
+            <option value="farmer">
+                Farmer
+            </option>
+
+            <option value="harvester">
+                Harvester
+            </option>
+
+            <option value="tools">
+                Tools Distributor
+            </option>
+
+            <option value="sorting">
+                Sorting & Grading
+            </option>
+
+            <option value="transport">
+                Transportation
+            </option>
+
+            <option value="marketer">
+                Marketer
+            </option>
+
+            <option value="wholesaler">
+                Wholesaler
+            </option>
+
+            <option value="retailer">
+                Retailer
+            </option>
+
+        </select>
+
+    </div>
+
+    <button class="continue-button" onclick="continueRole()">
+        CONTINUE →
+    </button>
+
+</section>
+
+
+<!-- ================= PROFILE SETUP ================= -->
+
+<section id="profilePage" class="page profile-page hidden">
+
+    <div class="profile-container">
+
+        <div class="step-number">02</div>
+
+        <h1 id="profileHeading">
+            Build your profile
+        </h1>
+
+        <p class="subtitle">
+            Tell us a little about yourself and your work.
+        </p>
+
+
+        <div class="form-section">
+
+            <h3>Personal information</h3>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Name / Business name</label>
+                    <input id="nameInput" placeholder="Enter name">
+                </div>
+
+                <div>
+                    <label>Mobile number</label>
+                    <input id="phoneInput" placeholder="10 digit mobile number">
+                </div>
+
+                <div>
+                    <label>State</label>
+
+                    <select id="stateInput">
+
+                        <option value="">Select state</option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Tamil Nadu</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Maharashtra</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+                    <label>City / Location</label>
+                    <input id="locationInput" placeholder="Example: Bengaluru">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DYNAMIC JOB DETAILS -->
+
+        <div id="jobDetails" class="form-section">
+
+        </div>
+
+
+        <button class="continue-button full-button" onclick="saveProfile()">
+            CREATE MY PROFILE →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboardPage" class="page dashboard hidden">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-top">
+
+            <div>
+
+                <div class="eyebrow">
+                    YOUR VALUE CHAIN
+                </div>
+
+                <h1 id="welcomeText">
+                    Welcome
+                </h1>
+
+                <p id="roleText"></p>
+
+            </div>
+
+            <button class="edit-button" onclick="openEditProfile()">
+                Edit profile
+            </button>
+
+        </div>
+
+
+        <!-- CURRENT PROFILE -->
+
+        <div class="profile-strip">
+
+            <div>
+                <small>LOCATION</small>
+                <strong id="dashLocation">—</strong>
+            </div>
+
+            <div>
+                <small>ROLE</small>
+                <strong id="dashRole">—</strong>
+            </div>
+
+            <div>
+                <small>STATUS</small>
+                <strong class="active-status">ACTIVE</strong>
+            </div>
+
+        </div>
+
+
+        <!-- NETWORK -->
+
+        <div class="network-section">
+
+            <div class="section-label">
+                FIND CONNECTIONS
+            </div>
+
+            <h2>
+                Build your network
+            </h2>
+
+            <div id="networkList" class="network-list">
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE DATA -->
+
+        <div class="availability-section">
+
+            <div class="section-label">
+                YOUR CURRENT DATA
+            </div>
+
+            <h2>
+                Current availability
+            </h2>
+
+            <div id="currentData" class="data-list">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section id="searchPage" class="page search-page hidden">
+
+    <div class="search-container">
+
+        <button class="back-button" onclick="backToDashboard()">
+            ← Back
+        </button>
+
+        <div class="eyebrow">
+            FIND CONNECTIONS
+        </div>
+
+        <h1 id="searchHeading">
+            Transportation
+        </h1>
+
+        <p id="searchDescription"></p>
+
+
+        <div class="search-box">
+
+            <div>
+
+                <label>Crop / Product</label>
+
+                <select id="searchCrop">
+
+                    <option value="">Any crop</option>
+                    <option>Coconut</option>
+                    <option>Tomato</option>
+                    <option>Rice</option>
+                    <option>Coffee</option>
+                    <option>Arecanut</option>
+                    <option>Banana</option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Quantity (kg)</label>
+
+                <input
+                    id="searchQuantity"
+                    type="number"
+                    placeholder="Example: 2000"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>State</label>
+
+                <select id="searchState">
+
+                    <option value="">Any state</option>
+                    <option>Karnataka</option>
+                    <option>Kerala</option>
+                    <option>Tamil Nadu</option>
+                    <option>Andhra Pradesh</option>
+                    <option>Maharashtra</option>
+
+                </select>
+
+            </div>
+
+
+            <button onclick="searchNetwork()">
+                SEARCH →
+            </button>
+
+        </div>
+
+
+        <div id="searchResults" class="search-results">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONNECTION ================= -->
+
+<div id="connectionModal" class="modal hidden">
+
+    <div class="modal-background" onclick="closeConnection()"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close" onclick="closeConnection()">×</button>
+
+        <div id="connectionContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= EDIT PROFILE ================= -->
+
+<div id="editModal" class="modal hidden">
+
+    <div class="modal-background" onclick="closeEditProfile()"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close" onclick="closeEditProfile()">×</button>
+
+        <div id="editContent"></div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
