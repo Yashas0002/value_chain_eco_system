@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>VCE Admin Console</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+
+<body>
+
+
+<header class="admin-nav">
+
+    <div>
+
+        <strong>VALUE CHAIN ENGINE</strong>
+
+        <span>ADMIN CONSOLE</span>
+
+    </div>
+
+
+    <div class="admin-status">
+        DATABASE CONTROL
+    </div>
+
+</header>
+
+
+<main class="admin-container">
+
+
+    <section class="admin-header">
+
+        <small>RESEARCH ENGINE</small>
+
+        <h1>
+            Data Control Centre
+        </h1>
+
+        <p>
+            Manage the participants, crops, market information
+            and transportation data used by the Value Chain Engine.
+        </p>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+        <div>
+            <small>TOTAL LISTINGS</small>
+            <strong id="totalListings">0</strong>
+        </div>
+
+        <div>
+            <small>FARMERS</small>
+            <strong id="farmerCount">0</strong>
+        </div>
+
+        <div>
+            <small>TRANSPORTERS</small>
+            <strong id="transportCount">0</strong>
+        </div>
+
+        <div>
+            <small>MARKETERS</small>
+            <strong id="marketerCount">0</strong>
+        </div>
+
+    </section>
+
+
+    <!-- ADD DATA -->
+
+    <section class="admin-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <small>DATABASE</small>
+
+                <h2>
+                    Add participant
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div>
+
+                <label>Role</label>
+
+                <select id="adminRole"
+                        onchange="loadAdminFields()">
+
+                    <option value="">
+                        Select role
+                    </option>
+
+                    <option value="farmer">
+                        Farmer
+                    </option>
+
+                    <option value="harvester">
+                        Harvester
+                    </option>
+
+                    <option value="tools">
+                        Tools Distributor
+                    </option>
+
+                    <option value="sorting">
+                        Sorting & Grading
+                    </option>
+
+                    <option value="transport">
+                        Transportation
+                    </option>
+
+                    <option value="marketer">
+                        Marketer
+                    </option>
+
+                    <option value="wholesaler">
+                        Wholesaler
+                    </option>
+
+                    <option value="retailer">
+                        Retailer
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Name / Business</label>
+
+                <input
+                    id="adminName"
+                    placeholder="Enter name"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>Phone</label>
+
+                <input
+                    id="adminPhone"
+                    placeholder="Phone number"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label>State</label>
+
+                <select id="adminState">
+
+                    <option>Karnataka</option>
+                    <option>Kerala</option>
+                    <option>Tamil Nadu</option>
+                    <option>Andhra Pradesh</option>
+                    <option>Maharashtra</option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Location</label>
+
+                <input
+                    id="adminLocation"
+                    placeholder="Bengaluru"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <div id="adminDynamicFields"></div>
+
+
+        <button
+            class="save-admin"
+            onclick="saveAdminListing()"
+        >
+            SAVE TO DATABASE
+        </button>
+
+    </section>
+
+
+    <!-- DATABASE -->
+
+    <section class="admin-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <small>DATABASE RECORDS</small>
+
+                <h2>
+                    Current participants
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="adminListings"
+             class="admin-list">
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
